@@ -15,6 +15,8 @@ Cette application permet de suivre les changements d'état des objets métier to
 
 1. **Cloner le dépôt** :
    git clone https://github.com/votre-utilisateur/suivi-changements-etats.git
+2. **Ouvrir Visual Studio** :
+   Lancer la solution .sln
 
 ## Choix Techniques
 
@@ -27,11 +29,11 @@ Cette application permet de suivre les changements d'état des objets métier to
 - La méthode ChangerEtat permet de changer l'état de l'objet. Si l'état actuel est différent du nouvel état, elle crée une nouvelle transition et la stocke dans l'historique.
 - La méthode AfficherHistorique permet d'afficher tout l'historique des transitions.
 
-### 3. Enum d'état
+### 3. Enum `Etat`
 - Cet enum permet de centraliser tout les états possibles d'un objet et ainsi améliorer la lisibilité et la maintenabilité du code.
 
 ### 3. Gestion des transitions d'état
 - Les transitions d'état sont gérées de manière centralisée dans l'objet métier à l'aide d'une méthode dédiée, `ChangerEtat(Etat nouvelEtat, string description)`.
 - Cette méthode enregistre chaque changement dans l'historique d'états, en assurant que chaque transition est tracée avec précision.
-- La séparation claire entre l'état actuel de l'objet et son historique permet de maintenir une trace complète des changements tout au long de son cycle de vie de plus l'instanciation de l'historique au début du cycle de 
-  vie de l'objet et son encapsulation (private) rend impossible l'écrasement de l'historique et permet ainsi de garder un historique complet.
+- La séparation claire entre l'état actuel de l'objet et son historique permet de maintenir une trace complète des changements tout au long de son cycle de vie, de plus l'instanciation de l'historique au début du cycle de 
+  vie de l'objet et son encapsulation (private), rend impossible l'écrasement de l'historique par inadvertance et permet ainsi de garder un historique complet.
